@@ -1,17 +1,49 @@
-# Lines configured by zsh-newuser-install
+#########################
+########## ZSH ##########
+#########################
+
+######## HISTORY ########
 HISTFILE=~/.histfile
 HISTSIZE=100
 SAVEHIST=100
+
+######### MISC ##########
 setopt extendedglob
 bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall    
+
+###### COMPLETION #######
 zstyle :compinstall filename '{{ home_dir }}/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
+####### BEHAVIOR ########
 # Word Seeking
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+
+
+#########################
+######## EXPORTS ########
+#########################
+export GPG_TTY=$(tty)
+
+
+#########################
+####### MINICONDA #######
+#########################
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('{{ home_dir }}/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "{{ home_dir }}/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "{{ home_dir }}/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="{{ home_dir }}/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+# Activate default env
+conda activate {{ start_env_name }}

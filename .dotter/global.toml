@@ -6,7 +6,9 @@ depends = []
 [default.files]
 "hypr" = "~/.config/hypr"
 "waybar" = "~/.config/waybar"
+"walker" = "~/.config/walker"
 ".zshrc" = "~/.zshrc"
+".condarc" = "~/.condarc"
 
 [default.variables]
 

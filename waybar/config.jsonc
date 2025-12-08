@@ -22,7 +22,7 @@
         "battery",
         "hyprland/language",
         "custom/clock",
-        //"tray",
+        "tray",
         "bluetooth",
         "network",
         "custom/power"
