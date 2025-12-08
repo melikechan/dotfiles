@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "height": 30,
+    "height": 32,
     "spacing": 4,
     // Bar
     "modules-left": [

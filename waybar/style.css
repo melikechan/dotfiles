@@ -1,10 +1,10 @@
 * {
-    font-family: Font Awesome, NotoSans NF, Noto Sans, sans-serif;
+    font-family: Font Awesome, Monaspace Neon, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(45, 55, 55, 0.5);
+    background-color: rgba(13, 13, 13, 0.6);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -29,8 +29,7 @@ button:hover {
 }
 
 #pulseaudio:hover {
-    background-color: rgba(45, 55, 55, 0.6);
-}
+    background-color: rgba(45, 55, 55, 0.6);}
 
 #workspaces button {
     padding: 0 5px;
@@ -204,4 +203,8 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+#custom-power {
+    font-size: 20px;
 }
