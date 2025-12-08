@@ -3,7 +3,7 @@
 My dotfiles I use for my laptop.
 
 > [!NOTE]
-> It is not only for laptops. I just haven't tried for multiple monitors lol.
+> It is **not only for laptops / single monitor setups**. I just _haven't tried_ for **multiple monitors** lol.
 
 ## How to use?
 
@@ -39,4 +39,4 @@ There are dotfiles for the listed apps below:
 
 ## Forenotes
 
-Interested in my setup more? Check [this repository](https://github.com/melikechan/my-setup)!
+Interested in my setup more? Check [this repository](https://github.com/melikechan/my-setup)! ✨
