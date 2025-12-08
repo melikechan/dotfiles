@@ -1,0 +1,226 @@
+// -*- mode: jsonc -*-
+{
+    "height": 30,
+    "spacing": 4,
+    // Bar
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "custom/media"
+    ],
+    "modules-right": [
+        "privacy",
+        "idle_inhibitor",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "backlight",
+        "temperature",
+        "power-profiles-daemon",
+        "battery",
+        "hyprland/language",
+        "custom/clock",
+        //"tray",
+        "bluetooth",
+        "network",
+        "custom/power"
+    ],
+    // Modules
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌎 $1",
+            "(.*) - VSCodium": "💻 $1",
+            "(.*) - zsh": "> [$1]"
+        },
+        "separate-outputs": true
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "🇺🇸 EN",
+        "format-tr": "🇹🇷 TR",
+        "format-de": "🇩🇪 DE"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 16
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 16
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 16
+            }
+        ],
+        "ignore-monitor": true
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        "icons": {}
+    },
+    "custom/clock": {
+        "exec": "$HOME/.config/waybar/scripts/clock.py",
+        "return-type": "json",
+        "interval": 1,
+        "format": "{}",
+        "on-scroll-up": "$HOME/.config/waybar/scripts/clock.py up && pkill -RTMIN+8 waybar",
+        "on-scroll-down": "$HOME/.config/waybar/scripts/clock.py down && pkill -RTMIN+8 waybar",
+        "tooltip": true
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "bluetooth": {
+        "format": "",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "kitty --class bluetuith bluetuith"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "⚠",
+        "tooltip-format-wifi": "{ifname}\n{essid} ({signalStrength}%)\nUp: {bandwidthUpBytes}, Down: {bandwidthDownBytes}",
+        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nUp: {bandwidthUpBytes}, Down: {bandwidthDownBytes}",
+        "on-click": "kitty --class nmtui nmtui"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {text}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+            "youtube": "",
+            "default": "🎜"
+        },
+        "escape": true,
+        "exec": "$HOME/.config/waybar/scripts/mediaplayer.py 2> /dev/null"
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    }
+}

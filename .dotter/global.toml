@@ -1,0 +1,14 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+"hypr" = "~/.config/hypr"
+"waybar" = "~/.config/waybar"
+".zshrc" = "~/.zshrc"
+
+[default.variables]
+
+[settings]
+default_target_type = "automatic"

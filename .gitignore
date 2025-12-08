@@ -1,0 +1,5 @@
+# dotter entries
+.dotter/cache
+
+.dotter/local.toml
+.dotter/cache.toml
