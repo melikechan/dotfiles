@@ -7,6 +7,7 @@ depends = []
 "hypr" = "~/.config/hypr"
 "waybar" = "~/.config/waybar"
 "walker" = "~/.config/walker"
+"kitty" = "~/.config/kitty"
 ".zshrc" = "~/.zshrc"
 ".condarc" = "~/.condarc"
 
