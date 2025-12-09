@@ -1,0 +1,16 @@
+[background]
+path = "/usr/share/bg/greeter.jpg"
+fit = "Cover"
+
+[GTK]
+application_prefer_dark_theme = true
+font_name = "Monaspace Neon NF 14"
+
+[commands]
+reboot = [ "systemctl", "reboot" ]
+poweroff = [ "systemctl", "poweroff" ]
+
+[widget.clock]
+format = "%H:%M | %d %B %Y (%A)"
+resolution = "500ms"
+label_width = 360

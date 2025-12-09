@@ -217,10 +217,12 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/power_menu.xml",
         "menu-actions": {
-            "shutdown": "shutdown",
-            "reboot": "reboot",
-            "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
+            "lock": "$HOME/.config/waybar/scripts/power.sh lock",
+            "logout": "$HOME/.config/waybar/scripts/power.sh logout",
+            "suspend": "$HOME/.config/waybar/scripts/power.sh suspend",
+            "hibernate": "$HOME/.config/waybar/scripts/power.sh hibernate",
+            "reboot": "$HOME/.config/waybar/scripts/power.sh reboot",
+            "shutdown": "$HOME/.config/waybar/scripts/power.sh shutdown"
         }
     }
 }

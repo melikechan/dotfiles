@@ -17,6 +17,9 @@ Before starting, you need to install [dotter](https://github.com/SuperCuber/dott
     - `start_env_name`: Your conda start environment. (example: `daily-drive`)
 4. `dotter deploy -v` :)
 
+> [!NOTE]
+> For ReGreet and greetd configs, move the [greetd](greetd) folder to `/etc/`.
+
 ## Dotfile List
 
 There are dotfiles for the listed apps below:
@@ -27,6 +30,10 @@ There are dotfiles for the listed apps below:
 - [hyprpaper](hypr/hyprpaper.conf)
 - [walker](walker)
 - [waybar](waybar)
+
+### Greeter
+
+- [greetd + ReGreet](greetd)
 
 ### Shell
 
