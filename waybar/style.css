@@ -208,3 +208,8 @@ label:focus {
 #custom-power {
     font-size: 20px;
 }
+
+#custom-notification {
+    font-size: 16px;
+    padding: 0 10px;
+}

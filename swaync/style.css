@@ -1,0 +1,167 @@
+@define-color bg_color       #0d0d0d;
+@define-color accent_primary #eebb11;   /* Yellow */
+@define-color accent_secondary #990088; /* Purple */
+@define-color text_primary   #ededed;
+@define-color text_dim       rgba(255, 255, 255, 0.05);
+
+* {
+  font-family: "Monaspace Neon NF", monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification {
+  /* Box Model */
+  display: block;
+  width: auto;
+  margin: 8px 16px;
+  padding: 12px;
+  
+  border-radius: 16px; 
+  border: 2px solid transparent; 
+
+  background-image: 
+      linear-gradient(@bg_color, @bg_color), 
+      linear-gradient(45deg, @accent_primary, @accent_secondary);
+  
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  /* Animation & Depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification:hover {
+  transform: translateY(-2px);
+  
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+
+  background: 
+      linear-gradient(@bg_color, @bg_color), 
+      linear-gradient(45deg, @accent_primary, @accent_secondary) !important;
+      
+  background-origin: border-box !important;
+  background-clip: padding-box, border-box !important;
+  border: 2px solid transparent !important;
+}
+
+.floating-notifications.background .notification-row .notification-background .notification:hover * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.summary {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: @accent_primary;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.body {
+  font-size: 0.9rem;
+  color: @text_primary;
+  line-height: 1.4;
+}
+
+.close-button {
+  background: @text_dim !important;
+  border-radius: 50%;
+  color: #ffffff;
+  padding: 6px;
+  margin-left: 8px;
+  box-shadow: none;
+  border: none;
+  transition: background 0.2s ease;
+}
+
+.close-button:hover {
+  background: @accent_secondary !important; /* Purple hover */
+  color: white !important;
+}
+
+.notification-action {
+  border-radius: 8px;
+  background-color: @text_dim !important; 
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid transparent;
+  text-align: center;
+  font-weight: 700;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.notification-action:hover {
+  background-color: rgba(238, 187, 17, 0.2) !important; 
+  border-color: @accent_primary !important;
+  color: @accent_primary !important;
+}
+
+.image {
+  margin: 0 12px 0 4px;
+  border-radius: 8px;
+}
+
+/* Target the actual sidebar window */
+.control-center {
+    background-color: rgba(13, 13, 13, 0.9); /* Matches your Waybar's 0.6 or slightly darker */
+    border: 1px solid @accent_primary;
+    border-radius: 12px;
+    margin: 10px;
+    padding: 10px;
+}
+
+/* Header title styling */
+.control-center-title {
+  color: @accent_primary;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+/* The 'Clear All' button */
+.widget-title > button {
+  background: @text_dim;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: @text_primary;
+}
+
+.widget-title > button:hover {
+  background: @accent_secondary;
+  color: white;
+}
+
+/* The container for the DND toggle */
+.widget-dnd {
+  margin: 8px 16px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03) !important; /* Slightly visible base */
+  border: 1px solid rgba(238, 187, 17, 0.2);     /* Faint yellow border */
+  border-radius: 12px;
+  color: @text_primary;
+}
+
+/* The actual switch/button inside the DND widget */
+.widget-dnd > switch {
+  font-size: 0.8rem;
+  border-radius: 20px;
+  border: 1px solid @accent_primary;
+  background: @bg_color;
+  transition: all 0.2s ease;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent_primary; /* Yellow background when ON */
+}
+
+.widget-dnd > switch slider {
+  background: @text_primary;
+  border-radius: 20px;
+  min-height: 18px;
+  min-width: 18px;
+  margin: 2px;
+}

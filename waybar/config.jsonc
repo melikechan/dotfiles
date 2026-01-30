@@ -12,6 +12,7 @@
     ],
     "modules-right": [
         "privacy",
+        "custom/notification",
         "idle_inhibitor",
         "pulseaudio",
         "cpu",
@@ -100,6 +101,26 @@
         "on-scroll-up": "$HOME/.config/waybar/scripts/clock.py up && pkill -RTMIN+8 waybar",
         "on-scroll-down": "$HOME/.config/waybar/scripts/clock.py down && pkill -RTMIN+8 waybar",
         "tooltip": true
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂚",
+            "dnd-notification": "󰒲 <sup>(!)</sup>",
+            "dnd-none": "󰒲",
+            "inhibited-notification": "󰂚",
+            "inhibited-none": "󰂛",
+            "dnd-inhibited-notification": "󰂚",
+            "dnd-inhibited-none": "󰂛"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
     "cpu": {
         "format": "{usage}% ",

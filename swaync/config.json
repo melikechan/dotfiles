@@ -1,0 +1,44 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "cssPriority": "user",
+
+  "control-center-width": 400,
+  "control-center-height": 600,
+  "control-center-margin-top": 20,
+  "control-center-margin-right": 3,
+  "control-center-margin-left": 0,
+
+  "notification-window-width": 400,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "widgets": [
+    "title",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "dnd": {
+      "text": "Do not Disturb"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "Clear"
+    }
+  }
+}
