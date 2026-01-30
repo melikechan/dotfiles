@@ -26,8 +26,16 @@ There are dotfiles for the listed apps below:
 
 ### Desktop
 
+#### hyprland Ecosystem
+
+- [hypridle](hypr/hypridle.conf)
 - [hyprland](hypr/hyprland.conf)
+- [hyprlock](hypr/hyprlock.conf)
 - [hyprpaper](hypr/hyprpaper.conf)
+
+#### Others
+
+- [swaync](swaync)
 - [walker](walker)
 - [waybar](waybar)
 
