@@ -22,11 +22,24 @@ compinit
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-
 #########################
 ######## EXPORTS ########
 #########################
 export GPG_TTY=$(tty)
+
+#########################
+####### FUNCTIONS #######
+#########################
+
+# CLEAN ORPHANED PACKAGES
+package-cleanup() {
+    if [[ -n $(pacman -Qdtq) ]]; then
+        sudo pacman -Rns $(pacman -Qdtq)
+    else
+        echo "No orphaned packages found."
+    fi
+}
+
 
 #########################
 ########## NVM ##########
