@@ -5,6 +5,8 @@ depends = []
 
 [default.files]
 "hypr" = "~/.config/hypr"
+"ruff" = "~/.config/ruff"
+"swaync" = "~/.config/swaync"
 "waybar" = "~/.config/waybar"
 "walker" = "~/.config/walker"
 "kitty" = "~/.config/kitty"
