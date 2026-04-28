@@ -49,6 +49,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #########################
+######### PNPM ##########
+#########################
+export PNPM_HOME="/home/melikechan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+#########################
 ####### MINICONDA #######
 #########################
 # !! Contents within this block are managed by 'conda init' !!
