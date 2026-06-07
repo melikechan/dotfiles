@@ -29,7 +29,7 @@ There are dotfiles for the listed apps below:
 #### hyprland Ecosystem
 
 - [hypridle](hypr/hypridle.conf)
-- [hyprland](hypr/hyprland.conf)
+- [hyprland](hypr/hyprland.lua)
 - [hyprlock](hypr/hyprlock.conf)
 - [hyprpaper](hypr/hyprpaper.conf)
 
@@ -51,6 +51,7 @@ There are dotfiles for the listed apps below:
 ### Python
 
 - [miniconda](.condarc)
+- [ruff](ruff/ruff.toml)
 
 ## Forenotes
 
