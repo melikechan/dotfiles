@@ -1,11 +1,23 @@
+@define-color background    rgba(13, 13, 13, 0.6);
+@define-color foreground    #ffffff;
+@define-color black         #000000;
+@define-color critical      #f53c3c;
+@define-color warning       #cf5700;
+@define-color good          #26a65b;
+@define-color accent        #2980b9;
+@define-color highlight     #64727d;
+@define-color hover         rgba(0, 0, 0, 0.2);
+@define-color muted-bg      #b1b1b1;
+@define-color muted-fg      #5e5e5e;
+
 * {
-    font-family: Font Awesome, Monaspace Neon, sans-serif;
+    font-family: "Font Awesome", "Monaspace Neon", sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(13, 13, 13, 0.6);
-    color: #ffffff;
+    background-color: @background;
+    color: @foreground;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -15,9 +27,7 @@ window#waybar.hidden {
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
 }
@@ -25,35 +35,32 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @foreground;
 }
-
-#pulseaudio:hover {
-    background-color: rgba(45, 55, 55, 0.6);}
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @foreground;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @hover;
 }
 
 #workspaces button.focused,
 #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: @highlight;
+    box-shadow: inset 0 -3px @foreground;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: @critical;
 }
 
 #mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: @highlight;
+    box-shadow: inset 0 -3px @foreground;
 }
 
 #clock,
@@ -71,7 +78,7 @@ button:hover {
 #idle_inhibitor,
 #power-profiles-daemon {
     padding: 0 10px;
-    color: #ffffff;
+    color: @foreground;
 }
 
 #network,
@@ -104,21 +111,21 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @foreground;
+    background-color: @good;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @foreground;
+        color: @black;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @critical;
+    color: @foreground;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -126,10 +133,9 @@ button:hover {
     animation-direction: alternate;
 }
 
-
 #bluetooth {
     font-size: 16px;
-    color: #ffffff;
+    color: @foreground;
 }
 
 #power-profiles-daemon {
@@ -137,36 +143,36 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @critical;
+    color: @foreground;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
+    background-color: @accent;
+    color: @foreground;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #1e8549;
-    color: #ffffff;
+    background-color: @good;
+    color: @foreground;
 }
 
 label:focus {
-    background-color: #000000;
+    background-color: @black;
 }
 
 #pulseaudio.muted {
-    background-color: #b1b1b1;
-    color: #5e5e5e;
+    background-color: @muted-bg;
+    color: @muted-fg;
 }
 
 #custom-media {
-    color: #ffffff;
+    color: @foreground;
     min-width: 100px;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: @critical;
 }
 
 #tray>.passive {
@@ -175,7 +181,7 @@ label:focus {
 
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: @critical;
 }
 
 #language {
@@ -190,23 +196,24 @@ label:focus {
 
 #privacy-item {
     padding: 0 5px;
-    color: white;
+    color: @foreground;
 }
 
 #privacy-item.screenshare {
-    background-color: #cf5700;
+    background-color: @warning;
 }
 
 #privacy-item.audio-in {
-    background-color: #1ca000;
+    background-color: @good;
 }
 
 #privacy-item.audio-out {
-    background-color: #0069d4;
+    background-color: @accent;
 }
 
 #custom-power {
-    font-size: 20px;
+    font-size: 14px;
+    margin: 0 4px 0 0;
 }
 
 #custom-notification {
