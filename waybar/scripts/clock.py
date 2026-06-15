@@ -66,9 +66,7 @@ except Exception:
     cal_lines_raw = ["Calendar Error"]
 
 # 4. Timezones
-tz_lines_raw = []
-tz_title_raw = "Other Timezones:"
-tz_lines_raw.append(tz_title_raw)
+tz_lines_raw = ["Other Timezones:"]
 
 for tz_name in timezones:
     try:
@@ -80,13 +78,7 @@ for tz_name in timezones:
         pass
 
 # --- Calculate Width (Centering) ---
-max_width = len(header_raw)
-for line in cal_lines_raw:
-    max_width = max(max_width, len(line))
-for line in tz_lines_raw:
-    max_width = max(max_width, len(line))
-
-max_width += 4
+max_width = max(len(line) for line in [header_raw, *cal_lines_raw, *tz_lines_raw]) + 4
 
 
 def center_text(text):

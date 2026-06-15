@@ -4,14 +4,16 @@
 depends = []
 
 [default.files]
+# Folders
 "hypr" = "~/.config/hypr"
-"ruff" = "~/.config/ruff"
 "swaync" = "~/.config/swaync"
 "waybar" = "~/.config/waybar"
 "walker" = "~/.config/walker"
 "kitty" = "~/.config/kitty"
+# Standalone files
 ".zshrc" = "~/.zshrc"
 ".condarc" = "~/.condarc"
+"ruff/ruff.toml" = "~/.config/ruff/ruff.toml"
 
 [default.variables]
 

@@ -33,9 +33,16 @@ export GPG_TTY=$(tty)
 
 # CLEAN ORPHANED PACKAGES
 package-cleanup() {
+    local found=0
+    if command -v paru &>/dev/null && [[ -n $(paru -Qdtq) ]]; then
+        paru -Rns $(paru -Qdtq)
+        found=1
+    fi
     if [[ -n $(pacman -Qdtq) ]]; then
         sudo pacman -Rns $(pacman -Qdtq)
-    else
+        found=1
+    fi
+    if [[ $found -eq 0 ]]; then
         echo "No orphaned packages found."
     fi
 }
