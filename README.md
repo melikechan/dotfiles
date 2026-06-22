@@ -12,9 +12,9 @@ Before starting, you need to install [dotter](https://github.com/SuperCuber/dott
 1. Clone this repository
 2. `cd dotfiles`
 3. Assign values to those variables in [`.dotter/local.toml`](.dotter/local.toml):
-    - `home_dir`: Your home directory (example: `/home/username`)
-    - `wallpaper_path`: Your wallpaper path. (example: `/home/username/wallpapers/wallpaper.png`)
-    - `start_env_name`: Your conda start environment. (example: `daily-drive`)
+   - `home_dir`: Your home directory (example: `/home/username`)
+   - `wallpaper_path`: Your wallpaper path. (example: `/home/username/wallpapers/wallpaper.png`)
+   - `start_env_name`: Your conda start environment. (example: `daily-drive`)
 4. `dotter deploy -v` :)
 
 > [!NOTE]
@@ -28,10 +28,23 @@ There are dotfiles for the listed apps below:
 
 #### hyprland Ecosystem
 
+> [!NOTE]
+> I got some of the configuration from [ML4W dotfiles](https://github.com/mylinuxforwork/dotfiles).
+
 - [hypridle](hypr/hypridle.conf)
 - [hyprland](hypr/hyprland.lua)
 - [hyprlock](hypr/hyprlock.conf)
 - [hyprpaper](hypr/hyprpaper.conf)
+- [hyprsunset](hypr/hyprsunset.conf)
+
+#### GTK Configs
+
+- [GTK 3.0](gtk/3.0/settings.ini)
+- [GTK 4.0](gtk/4.0/settings.ini)
+
+#### Qt Configs
+
+- [qt6ct](qt6ct/qt6ct.conf)
 
 #### Others
 
@@ -53,6 +66,6 @@ There are dotfiles for the listed apps below:
 - [miniconda](.condarc)
 - [ruff](ruff/ruff.toml)
 
-## Forenotes
+## Closing Notes
 
 Interested in my setup more? Check [this repository](https://github.com/melikechan/my-setup)! ✨
