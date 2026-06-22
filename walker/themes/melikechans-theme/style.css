@@ -1,18 +1,18 @@
 @define-color window_bg_color #0D0D0D;
 @define-color accent_bg_color #303030;
-@define-color border_color #990088;
-@define-color theme_fg_color #EDEDED;
-@define-color error_bg_color #C34043;
-@define-color error_fg_color #DCD7BA;
+@define-color border_color    #A50D7D;
+@define-color theme_fg_color  #EDEDED;
+@define-color error_bg_color  #C34043;
+@define-color error_fg_color  #DCD7BA;
 
 * {
   all: unset;
-  font-family: 'Monaspace Neon';
+  font-family: "Monaspace Neon";
 }
 
 popover {
   background: lighter(@window_bg_color);
-  border: 1px solid darker(@accent_bg_color);
+  border: 2px solid darker(@accent_bg_color);
   border-radius: 8px;
   padding: 10px;
 }
@@ -30,13 +30,10 @@ scrollbar {
 }
 
 .box-wrapper {
-  box-shadow:
-    0 19px 38px rgba(0, 0, 0, 0.3),
-    0 15px 12px rgba(0, 0, 0, 0.22);
   background: @window_bg_color;
   padding: 20px;
   border-radius: 8px;
-  border: 1.2px solid darker(@border_color);
+  border: 2px solid darker(@border_color);
 }
 
 .preview-box,

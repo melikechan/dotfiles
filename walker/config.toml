@@ -1,22 +1,31 @@
+# melikechan's walker config
+
+theme = "melikechans-theme"
+
 force_keyboard_focus = false
 close_when_open = true
 click_to_close = true
 single_click_activation = true
 selection_wrap = false
-global_argument_delimiter = "#"
-exact_search_prefix = "'"
-theme = "melikechans-theme"
 disable_mouse = false
 debug = false
+
+global_argument_delimiter = "#"
+exact_search_prefix = "'"
+
 page_jump_items = 10
+
 hide_quick_activation = false
 hide_action_hints = false
 hide_action_hints_dmenu = true
 hide_return_action = false
+keybind_symbols = true
 resume_last_query = false
 actions_as_menu = false
 
 [shell]
+exclusive_zone = -1
+layer = "overlay"
 anchor_top = true
 anchor_bottom = true
 anchor_left = true
@@ -27,6 +36,8 @@ anchor_right = true
 
 [placeholders]
 "default" = { input = "Search", list = "No Results" }
+"calc" = { input = "Calculate", list = "Enter Expression" }
+"clipboard" = { input = "Clipboard", list = "Clipboard Empty" }
 
 [keybinds]
 close = ["Escape"]
@@ -47,54 +58,24 @@ show_actions = ["alt j"]
 default = [
   "desktopapplications",
   "calc",
-  "websearch",
+  "clipboard",
+  "providerlist"
 ]
 empty = ["desktopapplications"]
 ignore_preview = []
 max_results = 50
-
-[providers.argument_delimiter]
-runner = " "
 
 [[providers.prefixes]]
 prefix = ";"
 provider = "providerlist"
 
 [[providers.prefixes]]
-prefix = ">"
-provider = "runner"
-
-[[providers.prefixes]]
-prefix = "/"
-provider = "files"
-
-[[providers.prefixes]]
-prefix = "."
-provider = "symbols"
-
-[[providers.prefixes]]
-prefix = "!"
-provider = "todo"
-
-[[providers.prefixes]]
-prefix = "%"
-provider = "bookmarks"
-
-[[providers.prefixes]]
 prefix = "="
 provider = "calc"
 
 [[providers.prefixes]]
-prefix = "@"
-provider = "websearch"
-
-[[providers.prefixes]]
 prefix = ":"
 provider = "clipboard"
-
-[[providers.prefixes]]
-prefix = "$"
-provider = "windows"
 
 [providers.clipboard]
 time_format = "%d.%m. - %H:%M"
@@ -113,34 +94,10 @@ providerlist = [
   { action = "activate", default = true, bind = "Return", after = "ClearReload" },
 ]
 
-bluetooth = [
-  { action = "find", bind = "ctrl f", after = "AsyncClearReload" },
-  { action = "remove", bind = "ctrl d", after = "AsyncReload" },
-  { action = "trust", bind = "ctrl t", after = "AsyncReload" },
-  { action = "untrust", bind = "ctrl t", after = "AsyncReload" },
-  { action = "pair", bind = "Return", after = "AsyncReload" },
-  { action = "connect", default = true, bind = "Return", after = "AsyncReload" },
-  { action = "disconnect", default = true, bind = "Return", after = "AsyncReload" },
-]
-
-archlinuxpkgs = [
-  { action = "install", bind = "Return", default = true },
-  { action = "remove", bind = "Return" },
-  { action = "show_all", label = "show all", bind = "ctrl i", after = "AsyncClearReload" },
-  { action = "refresh", label = "refresh", bind = "ctrl r", after = "AsyncReload" },
-  { action = "visit_url", label = "open URL", bind = "ctrl o" },
-  { action = "show_installed", label = "show installed", bind = "ctrl i", after = "AsyncClearReload" },
-]
-
 calc = [
   { action = "copy", default = true, bind = "Return" },
   { action = "delete", bind = "ctrl d", after = "AsyncReload" },
   { action = "save", bind = "ctrl s", after = "AsyncClearReload" },
-]
-
-websearch = [
-  { action = "search", default = true, bind = "Return" },
-  { action = "open_url", label = "open url", default = true, bind = "Return" },
 ]
 
 desktopapplications = [
@@ -154,51 +111,6 @@ desktopapplications = [
   { action = "pindown", bind = "ctrl m", after = "AsyncReload" },
 ]
 
-files = [
-  { action = "open", default = true, bind = "Return" },
-  { action = "opendir", label = "open dir", bind = "ctrl Return" },
-  { action = "copypath", label = "copy path", bind = "ctrl shift c" },
-  { action = "copyfile", label = "copy file", bind = "ctrl c" },
-  { action = "localsend", label = "localsend", bind = "ctrl l" },
-]
-
-1password = [
-  { action = "copy_password", label = "copy password", default = true, bind = "Return" },
-  { action = "copy_username", label = "copy username", bind = "shift Return" },
-  { action = "copy_2fa", label = "copy 2fa", bind = "ctrl Return" },
-]
-
-todo = [
-  { action = "save", default = true, bind = "Return", after = "AsyncClearReload" },
-  { action = "save_next", label = "save & new", bind = "shift Return", after = "AsyncClearReload" },
-  { action = "delete", bind = "ctrl d", after = "AsyncClearReload" },
-  { action = "active", default = true, bind = "Return", after = "Nothing" },
-  { action = "inactive", default = true, bind = "Return", after = "Nothing" },
-  { action = "done", bind = "ctrl f", after = "Nothing" },
-  { action = "change_category", bind = "ctrl y", label = "change category", after = "Nothing" },
-  { action = "clear", bind = "ctrl x", after = "AsyncClearReload" },
-  { action = "create", bind = "ctrl a", after = "AsyncClearReload" },
-  { action = "search", bind = "ctrl a", after = "AsyncClearReload" },
-]
-
-runner = [
-  { action = "run", default = true, bind = "Return" },
-  { action = "runterminal", label = "run in terminal", bind = "shift Return" },
-]
-
-symbols = [
-  { action = "run_cmd", label = "select", default = true, bind = "Return" },
-]
-
-unicode = [
-  { action = "run_cmd", label = "select", default = true, bind = "Return" },
-]
-
-nirisessions = [
-  { action = "start", label = "start", default = true, bind = "Return" },
-  { action = "start_new", label = "start blank", bind = "ctrl Return" },
-]
-
 clipboard = [
   { action = "copy", default = true, bind = "Return" },
   { action = "remove", bind = "ctrl d", after = "AsyncClearReload" },
@@ -210,15 +122,4 @@ clipboard = [
   { action = "unpause", bind = "ctrl p" },
   { action = "edit", bind = "ctrl o" },
   { action = "localsend", bind = "ctrl l" },
-]
-
-bookmarks = [
-  { action = "save", bind = "Return", after = "AsyncClearReload" },
-  { action = "open", default = true, bind = "Return" },
-  { action = "delete", bind = "ctrl d", after = "AsyncClearReload" },
-  { action = "change_category", label = "Change category", bind = "ctrl y", after = "Nothing" },
-  { action = "change_browser", label = "Change browser", bind = "ctrl b", after = "Nothing" },
-  { action = "import", label = "Import", bind = "ctrl i", after = "AsyncClearReload" },
-  { action = "create", bind = "ctrl a", after = "AsyncClearReload" },
-  { action = "search", bind = "ctrl a", after = "AsyncClearReload" },
 ]
