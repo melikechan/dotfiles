@@ -17,5 +17,24 @@ depends = []
 
 [default.variables]
 
+# GTK theming
+[gtk]
+depends = []
+
+[gtk.files]
+"gtk/3.0/settings.ini" = "~/.config/gtk-3.0/settings.ini"
+"gtk/4.0/settings.ini" = "~/.config/gtk-4.0/settings.ini"
+
+[gtk.variables]
+
+# Qt theming
+[qt]
+depends = []
+
+[qt.files]
+"qt6ct" = "~/.config/qt6ct"
+
+[qt.variables]
+
 [settings]
 default_target_type = "automatic"
