@@ -1,27 +1,24 @@
-@define-color background #0d0d0d;
-@define-color foreground #eeeeee;
-@define-color card #1a1a1a;
-@define-color card_foreground #eeeeee;
-@define-color popover #282828;
-@define-color popover_foreground #c0c0c0;
-@define-color primary #990088;
-@define-color primary_foreground #ffcef8;
-@define-color secondary #282828;
-@define-color secondary_foreground #eeeeee;
-@define-color muted #111111;
-@define-color muted_foreground #a1a1aa;
-@define-color accent #303030;
-@define-color accent_foreground #ffffff;
-@define-color destructive #C34043;
-@define-color destructive_foreground #ffffff;
-@define-color border @primary;
-@define-color input #181818;
-@define-color ring @primary;
-@define-color shadow #000000;
+/*  melikechan's ReGreet Config */
+@define-color background             #0D0D0D;
+@define-color foreground             #EDEDED;
+@define-color primary                #701DED;
+@define-color primary_foreground     #EDEDED;
+@define-color muted                  #2F273A;
+@define-color muted_foreground       #A1A1AA;
+@define-color accent                 #2F273A;
+@define-color accent_foreground      #EDEDED;
+@define-color destructive            #C34043;
+@define-color destructive_foreground #F8E8E8;
+@define-color success                #29943C;
+@define-color success_foreground     #EAF7EE;
+@define-color input                  #181818;
+@define-color border                 @primary;
+@define-color ring                   @primary;
+@define-color shadow                 #000000;
 
 * {
   all: unset;
-  font-family: 'Monaspace Neon NF', monospace;
+  font-family: "Monaspace Neon NF", monospace;
   font-size: 14px;
 }
 
@@ -29,95 +26,139 @@ picture {
   filter: blur(1.2rem);
 }
 
+/*  Frames  */
 frame.background {
-  background: alpha(@background, .80);
-  color: @foreground;
-  border-radius: 8px;
-  box-shadow: 0 0 8px 0 alpha(@shadow, .80);
-  border: 1px solid @border;
-}
-
-frame.background.top {
-  font-size: 18px;
-  padding: 8px 16px;
   background: @background;
-  border-radius: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
   color: @foreground;
-  border-bottom: 1px solid @border;
+  border: 2px solid @border;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 alpha(@shadow, 0.8);
+  padding: 8px 0;
 }
 
-box.horizontal>button.default.suggested-action.text-button {
-  background: none;
+/*  Keyboard focus  */
+/* Login, Cancel, Pencils */
+box.horizontal > button.suggested-action:focus-visible,
+box.horizontal
+  > button.text-button:not(.suggested-action):not(
+    .destructive-action
+  ):focus-visible,
+button.image-button.toggle:focus-visible {
+  box-shadow: 0 0 8px 0 alpha(@primary, 0.5);
+}
+
+/*  Reboot  */
+box.horizontal > button.destructive-action:first-child:focus-visible {
+  box-shadow: 0 0 14px 3px alpha(@success, 0.85);
+}
+
+/*  Power off */
+box.horizontal > button.destructive-action:last-child:focus-visible {
+  box-shadow: 0 0 14px 3px alpha(@destructive, 0.85);
+}
+
+/*  Combobox / Entry boxes */
+combobox:focus-within,
+entry:focus-within {
+  background: shade(@input, 1.1);
+  border-color: @ring;
+  box-shadow: 0 0 8px 0 alpha(@ring, 0.5);
+}
+
+/*  Buttons */
+button {
+  background: transparent;
+  color: @foreground;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 2px 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+/*  Login (primary action)  */
+box.horizontal > button.suggested-action {
+  border-color: @primary;
   color: @primary_foreground;
-  border: 1px solid @primary;
-  padding: 12px;
-  margin: 0 8px;
-  border-radius: 4px;
   font-weight: bold;
-  transition: background .3s ease-in-out;
+  padding: 12px 16px;
+  margin: 0 8px;
+}
+box.horizontal > button.suggested-action:hover {
+  background: @primary;
+  color: @primary_foreground;
 }
 
-box.horizontal>button.default.suggested-action.text-button:hover {
-  background: alpha(@primary, 0.4);
+/*  Cancel (neutral action) */
+box.horizontal
+  > button.text-button:not(.suggested-action):not(.destructive-action) {
+  border-color: @destructive;
+  color: @destructive_foreground;
+  padding: 12px 16px;
+}
+box.horizontal
+  > button.text-button:not(.suggested-action):not(.destructive-action):hover {
+  background: alpha(@destructive, 0.2);
 }
 
-box.horizontal>button.text-button {
-  background: none;
-  color: alpha(@destructive, 0.8);
-  border: 1px solid @destructive;
-  padding: 12px;
-  border-radius: 4px;
-  transition: background .3s ease-in-out;
+/*  Reboot  */
+box.horizontal > button.destructive-action:first-child {
+  border-color: @success;
+  color: @success;
+  padding: 12px 16px;
+}
+box.horizontal > button.destructive-action:first-child:hover {
+  background: @success;
+  color: @success_foreground;
 }
 
-box.horizontal>button.text-button:hover {
+/*  Power off */
+box.horizontal > button.destructive-action:last-child {
+  border-color: @destructive;
+  color: @destructive;
+  padding: 12px 16px;
+}
+box.horizontal > button.destructive-action:last-child:hover {
   background: @destructive;
   color: @destructive_foreground;
 }
 
+/*  Manual-entry toggles  */
+button.image-button.toggle {
+  color: @muted_foreground;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  margin-right: 0;
+}
+button.image-button.toggle:hover {
+  background: @accent;
+  color: @accent_foreground;
+  box-shadow: 0 0 4px 0 alpha(@shadow, 0.6);
+}
+button.image-button.toggle:disabled {
+  background: @muted;
+  color: alpha(@muted_foreground, 0.6);
+}
+
+/*  Dropdown menu rows  */
 modelbutton.flat {
-  background: @secondary;
-  color: @secondary_foreground;
+  color: @foreground;
   padding: 8px 12px;
   margin: 2px;
   border-radius: 4px;
   border-spacing: 6px;
-  transition: background 0.2s;
+  transition: all 0.2s ease-in-out;
 }
-
 modelbutton.flat:hover {
   background: @accent;
   color: @accent_foreground;
 }
-
 modelbutton.flat:selected {
   background: @primary;
   color: @primary_foreground;
 }
 
-button.image-button.toggle {
-  color: @muted_foreground;
-  margin-right: 0;
-  padding: 12px;
-  border-radius: 4px;
-  transition: all 0.2s;
-}
-
-button.image-button.toggle:hover {
-  background: @accent;
-  color: @accent_foreground;
-  box-shadow: 0 0 4px 0px alpha(@shadow, .6);
-}
-
-button.image-button.toggle:disabled {
-  background: @muted;
-  color: alpha(@muted_foreground, .6);
-  padding: 12px;
-  border-radius: 4px;
-}
-
+/*  Comboboxes  */
 combobox {
   background: @input;
   color: @foreground;
@@ -125,19 +166,15 @@ combobox {
   border-radius: 4px;
   padding: 6px 12px;
   box-shadow: none;
+  transition: all 0.2s ease-in-out;
 }
-
 combobox:hover {
   background: shade(@input, 1.1);
   border-color: @ring;
 }
-
 combobox:disabled {
   background: @muted;
-  color: alpha(@muted_foreground, .6);
-  border-radius: 4px;
-  padding: 12px;
-  box-shadow: none;
+  color: alpha(@muted_foreground, 0.6);
 }
 
 combobox > popover {
@@ -146,26 +183,29 @@ combobox > popover {
   border: 1px solid @border;
   border-radius: 4px;
   padding: 6px;
-  box-shadow: 0 4px 12px black;
+  box-shadow: 0 4px 12px alpha(@shadow, 0.8);
 }
-
-combobox>popover>contents {
+combobox > popover > contents {
   padding: 4px;
 }
 
-entry.password {
+/*  Entries */
+selection {
+  background-color: darker(@primary);
+  color: @primary_foreground;
+}
+
+entry {
   background: @input;
   color: @foreground;
   border: 1px solid @border;
   border-radius: 4px;
-  padding: 10px;
+  padding: 6px 12px;
+  box-shadow: none;
   caret-color: @primary;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
 }
-
-entry.password:focus,
-entry.password:hover {
+entry:hover {
   background: shade(@input, 1.1);
   border-color: @ring;
-  box-shadow: 0 0 0 1px @ring;
 }
