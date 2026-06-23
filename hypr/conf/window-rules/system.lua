@@ -26,6 +26,14 @@ hl.window_rule({
     size = { "monitor_w * 0.5", "monitor_h * 0.6" }
 })
 
+-- Zenity
+hl.window_rule({
+    match = { class = "^(zenity)$" },
+    float = true,
+    rounding = 16,
+    no_shadow = true,
+})
+
 -- hyprland Share Picker
 hl.window_rule({
     name = "hyprland-share-picker",
