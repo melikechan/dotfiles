@@ -1,9 +1,9 @@
 @define-color window_bg_color #0D0D0D;
-@define-color accent_bg_color #303030;
-@define-color border_color    #A50D7D;
+@define-color accent_bg_color #2F273A;
+@define-color border_color    #701DED;
 @define-color theme_fg_color  #EDEDED;
 @define-color error_bg_color  #C34043;
-@define-color error_fg_color  #DCD7BA;
+@define-color error_fg_color  #F8E8E8;
 
 * {
   all: unset;
@@ -54,12 +54,12 @@ scrollbar {
 }
 
 .input selection {
-  background: lighter(lighter(lighter(@window_bg_color)));
+  background: darker(@border_color);
 }
 
 .input {
   caret-color: @theme_fg_color;
-  background: lighter(@window_bg_color);
+  background: lighter(lighter(lighter(@window_bg_color)));
   padding: 10px;
   color: @theme_fg_color;
 }

@@ -49,18 +49,13 @@ down = ["Down"]
 up = ["Up"]
 toggle_exact = ["ctrl e"]
 resume_last_query = ["ctrl r"]
-quick_activate = ["F1", "F2", "F3", "F4"]
+quick_activate = ["F1", "F2", "F3", "F4", "F5"]
 page_down = ["Page_Down"]
 page_up = ["Page_Up"]
 show_actions = ["alt j"]
 
 [providers]
-default = [
-  "desktopapplications",
-  "calc",
-  "clipboard",
-  "providerlist"
-]
+default = ["desktopapplications", "providerlist"]
 empty = ["desktopapplications"]
 ignore_preview = []
 max_results = 50
