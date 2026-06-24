@@ -11,10 +11,7 @@ Before starting, you need to install [dotter](https://github.com/SuperCuber/dott
 
 1. Clone this repository
 2. `cd dotfiles`
-3. Assign values to those variables in [`.dotter/local.toml`](.dotter/local.toml):
-   - `home_dir`: Your home directory (example: `/home/username`)
-   - `wallpaper_path`: Your wallpaper path. (example: `/home/username/wallpapers/wallpaper.png`)
-   - `start_env_name`: Your conda start environment. (example: `daily-drive`)
+3. Create a `local.toml` file from the [example local.toml file](.dotter/local.toml.example) and replace the variable values inside.
 4. `dotter deploy -v` :)
 
 > [!NOTE]

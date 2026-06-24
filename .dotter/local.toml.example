@@ -1,0 +1,10 @@
+includes = []
+packages = ["default", "gtk", "qt"]
+
+[files]
+
+[variables]
+home_dir = "your-home-dir"
+wallpaper_path= "your-wallpaper-path"
+lock_screen_wallpaper_path= "your-lock-screen-wallpaper-path"
+start_env_name = "conda-start-env-name"
