@@ -2,15 +2,15 @@
 @define-color background             #0D0D0D;
 @define-color foreground             #EDEDED;
 @define-color primary                #701DED;
-@define-color primary_foreground     #EDEDED;
+@define-color primary-foreground     #EDEDED;
 @define-color muted                  #2F273A;
-@define-color muted_foreground       #A1A1AA;
+@define-color muted-foreground       #A1A1AA;
 @define-color accent                 #2F273A;
-@define-color accent_foreground      #EDEDED;
+@define-color accent-foreground      #EDEDED;
 @define-color destructive            #C34043;
-@define-color destructive_foreground #F8E8E8;
+@define-color destructive-foreground #F8E8E8;
 @define-color success                #29943C;
-@define-color success_foreground     #EAF7EE;
+@define-color success-foreground     #EAF7EE;
 @define-color input                  #181818;
 @define-color border                 @primary;
 @define-color ring                   @primary;
@@ -78,21 +78,21 @@ button {
 /*  Login (primary action)  */
 box.horizontal > button.suggested-action {
   border-color: @primary;
-  color: @primary_foreground;
+  color: @primary-foreground;
   font-weight: bold;
   padding: 12px 16px;
   margin: 0 8px;
 }
 box.horizontal > button.suggested-action:hover {
   background: @primary;
-  color: @primary_foreground;
+  color: @primary-foreground;
 }
 
 /*  Cancel (neutral action) */
 box.horizontal
   > button.text-button:not(.suggested-action):not(.destructive-action) {
   border-color: @destructive;
-  color: @destructive_foreground;
+  color: @destructive-foreground;
   padding: 12px 16px;
 }
 box.horizontal
@@ -108,7 +108,7 @@ box.horizontal > button.destructive-action:first-child {
 }
 box.horizontal > button.destructive-action:first-child:hover {
   background: @success;
-  color: @success_foreground;
+  color: @success-foreground;
 }
 
 /*  Power off */
@@ -119,12 +119,12 @@ box.horizontal > button.destructive-action:last-child {
 }
 box.horizontal > button.destructive-action:last-child:hover {
   background: @destructive;
-  color: @destructive_foreground;
+  color: @destructive-foreground;
 }
 
 /*  Manual-entry toggles  */
 button.image-button.toggle {
-  color: @muted_foreground;
+  color: @muted-foreground;
   border: none;
   border-radius: 4px;
   padding: 12px;
@@ -132,12 +132,12 @@ button.image-button.toggle {
 }
 button.image-button.toggle:hover {
   background: @accent;
-  color: @accent_foreground;
+  color: @accent-foreground;
   box-shadow: 0 0 4px 0 alpha(@shadow, 0.6);
 }
 button.image-button.toggle:disabled {
   background: @muted;
-  color: alpha(@muted_foreground, 0.6);
+  color: alpha(@muted-foreground, 0.6);
 }
 
 /*  Dropdown menu rows  */
@@ -151,11 +151,11 @@ modelbutton.flat {
 }
 modelbutton.flat:hover {
   background: @accent;
-  color: @accent_foreground;
+  color: @accent-foreground;
 }
 modelbutton.flat:selected {
   background: @primary;
-  color: @primary_foreground;
+  color: @primary-foreground;
 }
 
 /*  Comboboxes  */
@@ -174,7 +174,7 @@ combobox:hover {
 }
 combobox:disabled {
   background: @muted;
-  color: alpha(@muted_foreground, 0.6);
+  color: alpha(@muted-foreground, 0.6);
 }
 
 combobox > popover {
@@ -192,7 +192,7 @@ combobox > popover > contents {
 /*  Entries */
 selection {
   background-color: darker(@primary);
-  color: @primary_foreground;
+  color: @primary-foreground;
 }
 
 entry {

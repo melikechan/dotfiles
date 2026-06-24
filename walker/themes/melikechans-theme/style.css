@@ -1,20 +1,20 @@
-@define-color window_bg_color #0D0D0D;
-@define-color accent_bg_color #2F273A;
-@define-color border_color    #701DED;
-@define-color theme_fg_color  #EDEDED;
-@define-color error_bg_color  #C34043;
-@define-color error_fg_color  #F8E8E8;
+@define-color window-bg-color #0D0D0D;
+@define-color accent-bg-color #2F273A;
+@define-color border-color    #701DED;
+@define-color theme-fg-color  #EDEDED;
+@define-color error-bg-color  #C34043;
+@define-color error-fg-color  #F8E8E8;
 
 * {
   all: unset;
-  font-family: "Monaspace Neon";
+  font-family: "Monaspace Neon NF";
 }
 
 popover {
-  background: lighter(@window_bg_color);
-  border: 2px solid darker(@accent_bg_color);
-  border-radius: 8px;
   padding: 10px;
+  background: lighter(@window-bg-color);
+  border: 2px solid darker(@accent-bg-color);
+  border-radius: 8px;
 }
 
 .normal-icons {
@@ -30,16 +30,16 @@ scrollbar {
 }
 
 .box-wrapper {
-  background: @window_bg_color;
   padding: 20px;
+  background: @window-bg-color;
+  border: 2px solid darker(@border-color);
   border-radius: 8px;
-  border: 2px solid darker(@border_color);
 }
 
 .preview-box,
 .elephant-hint,
 .placeholder {
-  color: @theme_fg_color;
+  color: @theme-fg-color;
 }
 
 .box {
@@ -54,14 +54,14 @@ scrollbar {
 }
 
 .input selection {
-  background: darker(@border_color);
+  background: darker(@border-color);
 }
 
 .input {
-  caret-color: @theme_fg_color;
-  background: lighter(lighter(lighter(@window_bg_color)));
   padding: 10px;
-  color: @theme_fg_color;
+  background: lighter(lighter(lighter(@window-bg-color)));
+  caret-color: @theme-fg-color;
+  color: @theme-fg-color;
 }
 
 .input:focus,
@@ -78,26 +78,26 @@ scrollbar {
 }
 
 .list {
-  color: @theme_fg_color;
+  color: @theme-fg-color;
 }
 
 child {
 }
 
 .item-box {
-  border-radius: 8px;
   padding: 10px;
+  border-radius: 8px;
 }
 
 .item-quick-activation {
-  background: alpha(@accent_bg_color, 0.25);
-  border-radius: 4px;
   padding: 10px;
+  background: alpha(@accent-bg-color, 0.25);
+  border-radius: 4px;
 }
 
 /* child:hover .item-box, */
 child:selected .item-box {
-  background: alpha(@accent_bg_color, 0.25);
+  background: alpha(@accent-bg-color, 0.25);
 }
 
 .item-text-box {
@@ -118,10 +118,9 @@ child:selected .item-box {
 }
 
 .preview {
-  border: 1px solid alpha(@accent_bg_color, 0.25);
-  /* padding: 10px; */
+  border: 1px solid alpha(@accent-bg-color, 0.25);
   border-radius: 8px;
-  color: @theme_fg_color;
+  color: @theme-fg-color;
 }
 
 .calc .item-text {
@@ -156,10 +155,10 @@ child:selected .item-box {
 }
 
 .keybinds {
-  padding-top: 10px;
-  border-top: 1px solid lighter(@window_bg_color);
   font-size: 12px;
-  color: @theme_fg_color;
+  padding-top: 10px;
+  border-top: 1px solid lighter(@window-bg-color);
+  color: @theme-fg-color;
 }
 
 .global-keybinds {
@@ -188,19 +187,15 @@ child:selected .item-box {
 .keybind-label {
   padding: 2px 4px;
   border-radius: 2px;
-  border: 1px solid @border_color;
+  border: 1px solid @border-color;
 }
 
 .error {
   padding: 10px;
-  background: @error_bg_color;
-  color: @error_fg_color;
+  background: @error-bg-color;
+  color: @error-fg-color;
 }
 
 :not(.calc).current {
   font-style: italic;
-}
-
-.preview-content.archlinuxpkgs {
-  font-family: monospace;
 }
