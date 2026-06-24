@@ -1,222 +1,205 @@
-@define-color background    rgba(13, 13, 13, 0.6);
-@define-color foreground    #ffffff;
-@define-color black         #000000;
-@define-color critical      #f53c3c;
-@define-color warning       #cf5700;
-@define-color good          #26a65b;
-@define-color accent        #2980b9;
-@define-color highlight     #64727d;
-@define-color hover         rgba(0, 0, 0, 0.2);
-@define-color muted-bg      #b1b1b1;
-@define-color muted-fg      #5e5e5e;
+/*  Palette */
+@define-color background             rgba(13, 13, 13, 0.45);
+@define-color foreground             #EDEDED;
+@define-color primary                #701DED;
+@define-color primary-alt            #A50D7D;
+@define-color primary-foreground     #EDEDED;
+@define-color muted                  #2F273A;
+@define-color muted-foreground       #A1A1AA;
+@define-color accent                 #2F273A;
+@define-color accent-foreground      #EDEDED;
+@define-color destructive            #C34043;
+@define-color destructive-foreground #F8E8E8;
+@define-color warning                #cf5700;
+@define-color warning-foreground     #F8E8E8;
+@define-color success                #29943C;
+@define-color success-foreground     #EAF7EE;
+@define-color input                  #181818;
+@define-color border                 @primary;
+@define-color ring                   @primary;
+@define-color shadow                 #000000;
+@define-color popover                #0D0D0D;
+@define-color surface                rgba(255, 255, 255, 0.05);
+@define-color surface-hover          rgba(255, 255, 255, 0.10);
 
 * {
-    font-family: "Font Awesome", "Monaspace Neon", sans-serif;
-    font-size: 13px;
+  font-family: "Font Awesome", "Monaspace Neon", sans-serif;
+  font-size: 13px;
+  border: none;
+  min-height: 0;
 }
 
 window#waybar {
-    background-color: @background;
-    color: @foreground;
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: @background;
+  color: @foreground;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(60deg, @primary, @primary-alt) 1;
+  transition-property: background-color, opacity;
+  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px @foreground;
+tooltip {
+  background-color: @popover;
+  border: 2px solid @border;
+  border-radius: 8px;
+}
+tooltip label {
+  color: @foreground;
+  padding: 2px;
+}
+
+menu {
+  background-color: @popover;
+  border: 2px solid @border;
+  border-radius: 8px;
+  padding: 4px;
+}
+menu menuitem {
+  color: @foreground;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+menu menuitem:hover {
+  background-color: @surface-hover;
+}
+
+#custom-logo,
+#g-privacy,
+#g-notify,
+#g-hardware,
+#g-status,
+#g-power,
+#tray {
+  background-color: @surface;
+  color: @foreground;
+  margin: 4px 0;
+  padding: 0 8px;
+  border-radius: 8px;
+}
+
+#workspaces {
+  background-color: @surface;
+  color: @foreground;
+  margin: 4px 0;
+  padding: 0 2px;
+  border-radius: 0;
+}
+
+#custom-logo {
+  color: @border;
+  font-size: 26px;
+  padding: 0 10px;
+}
+#custom-logo:hover {
+  color: @primary-alt;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: @foreground;
+  padding: 0 8px;
 }
-
 #workspaces button:hover {
-    background: @hover;
+  background: alpha(@primary-alt, 0.15);
+  box-shadow: inset 0 -2px @primary-alt;
 }
-
-#workspaces button.focused,
-#workspaces button.active {
-    background-color: @highlight;
-    box-shadow: inset 0 -3px @foreground;
+#workspaces button.active,
+#workspaces button.focused {
+  background-color: darker(@primary);
+  box-shadow: inset 0 -2px @border;
+  font-weight: bold;
 }
-
 #workspaces button.urgent {
-    background-color: @critical;
+  background-color: @destructive;
 }
 
-#mode {
-    background-color: @highlight;
-    box-shadow: inset 0 -3px @foreground;
+#window {
+  padding: 0 8px;
 }
 
-#clock,
-#battery,
 #cpu,
 #memory,
-#disk,
 #temperature,
+#battery,
 #backlight,
 #pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#power-profiles-daemon {
-    padding: 0 10px;
-    color: @foreground;
-}
-
+#bluetooth,
 #network,
-#bluetooth {
-    padding: 0 5px;
+#custom-clock,
+#language,
+#idle_inhibitor,
+#custom-notification,
+#custom-privacy,
+#custom-power {
+  color: @foreground;
+  padding: 0 8px;
 }
 
+#bluetooth {
+  font-size: 15px;
+}
 #network {
-    margin: 0 10px 0 0;
+  font-size: 14px;
 }
-
-#bluetooth {
-    margin: 0 0 0 10px;
+#idle_inhibitor {
+  font-size: 15px;
 }
-
-#window,
-#workspaces {
-    margin: 0 5px;
+#custom-notification {
+  font-size: 15px;
 }
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
+#custom-privacy {
+  font-size: 14px;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
+#custom-power {
+  font-size: 14px;
+}
+#language {
+  min-width: 40px;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @foreground;
-    background-color: @good;
+  background-color: @success;
+  color: @foreground;
 }
 
 @keyframes blink {
-    to {
-        background-color: @foreground;
-        color: @black;
-    }
+  to {
+    background-color: @foreground;
+    color: @shadow;
+  }
 }
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: @critical;
-    color: @foreground;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#bluetooth {
-    font-size: 16px;
-    color: @foreground;
-}
-
-#power-profiles-daemon {
-    padding-right: 12px;
-}
-
-#power-profiles-daemon.performance {
-    background-color: @critical;
-    color: @foreground;
-}
-
-#power-profiles-daemon.balanced {
-    background-color: @accent;
-    color: @foreground;
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: @good;
-    color: @foreground;
-}
-
-label:focus {
-    background-color: @black;
-}
-
-#pulseaudio.muted {
-    background-color: @muted-bg;
-    color: @muted-fg;
-}
-
-#custom-media {
-    color: @foreground;
-    min-width: 100px;
+  background-color: @destructive;
+  color: @foreground;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #temperature.critical {
-    background-color: @critical;
+  background-color: @destructive;
 }
 
-#tray>.passive {
-    -gtk-icon-effect: dim;
+#pulseaudio.muted,
+#pulseaudio.source-muted {
+  color: @muted-foreground;
 }
 
-#tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @critical;
+#tray > .passive {
+  -gtk-icon-effect: dim;
 }
-
-#language {
-    padding: 0 4px;
-    margin: 0 4px;
-    min-width: 40px;
-}
-
-#privacy {
-    padding: 0;
-}
-
-#privacy-item {
-    padding: 0 5px;
-    color: @foreground;
-}
-
-#privacy-item.screenshare {
-    background-color: @warning;
-}
-
-#privacy-item.audio-in {
-    background-color: @good;
-}
-
-#privacy-item.audio-out {
-    background-color: @accent;
-}
-
-#custom-power {
-    font-size: 14px;
-    margin: 0 4px 0 0;
-}
-
-#custom-notification {
-    font-size: 16px;
-    padding: 0 10px;
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @destructive;
 }

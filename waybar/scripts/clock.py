@@ -47,7 +47,7 @@ target_month = (target_month_idx % 12) + 1
 # --- Generate Content ---
 
 # 1. Main Bar Text
-main_text = f"{now.strftime('%H:%M:%S')}  "
+main_text = f" {now.strftime('%H:%M:%S')}"
 
 # 2. Header (Use target daFte)
 target_date_obj = datetime.date(target_year, target_month, 1)
