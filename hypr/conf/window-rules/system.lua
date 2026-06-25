@@ -61,10 +61,10 @@ hl.window_rule({
     size = { "monitor_w * 0.5", "monitor_h * 0.6" }
 })
 
--- pavucontrol
+-- pwvucontrol
 hl.window_rule({
-    name = "pavucontrol",
-    match = { class = "org.pulseaudio.pavucontrol" },
+    name = "pwvucontrol",
+    match = { class = "com.saivert.pwvucontrol" },
     float = true,
     center = true,
     size = { "monitor_w * 0.5", "monitor_h * 0.6" }
