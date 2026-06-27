@@ -31,4 +31,4 @@ require("conf.gestures")
 require("conf.keybindings")
 
 -- Window rules
-require("conf.window-rules.system")
+require("conf.window_rules.system")

@@ -13,7 +13,7 @@ local mainMod     = "SUPER" -- Modifier key (Windows)
 -- System (I hope they are not prone to be pressed accidental enough xd)
 hl.bind(mainMod .. " + CTRL + M", hl.dsp.exit(), { description = "Quit hyprland" })
 hl.bind(mainMod .. " + CTRL + R", hl.dsp.force_renderer_reload, { description = "Restart hyprland" })
-hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd("~/.config/hypr/scripts/show-keybindings.sh"),
+hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd("~/.config/hypr/scripts/show_keybindings.sh"),
     { description = "Show keybindings" })
 
 -- Default app bindings

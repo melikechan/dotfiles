@@ -1,6 +1,6 @@
 # melikechan's walker config
 
-theme = "melikechans-theme"
+theme = "melikechans_theme"
 
 force_keyboard_focus = false
 close_when_open = true
