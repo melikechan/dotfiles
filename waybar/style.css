@@ -97,11 +97,13 @@ menu menuitem:hover {
 
 #custom-logo {
   color: @border;
-  font-size: 26px;
   padding: 0 10px;
 }
 #custom-logo:hover {
   color: @primary-alt;
+}
+#custom-logo label {
+  font-size: 26px;
 }
 
 #workspaces button {

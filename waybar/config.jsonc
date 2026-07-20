@@ -47,7 +47,7 @@
   // Left
   "custom/logo": {
     "format": "✴",
-    "tooltip": true,
+    "tooltip": false,
     "on-click": "walker",
   },
   "hyprland/workspaces": {
