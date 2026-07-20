@@ -13,6 +13,7 @@ depends = []
 # Standalone files
 ".zshrc" = "~/.zshrc"
 ".condarc" = "~/.condarc"
+".clang-format" = "~/.clang-format"
 "ruff/ruff.toml" = "~/.config/ruff/ruff.toml"
 
 [default.variables]
