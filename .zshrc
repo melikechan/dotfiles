@@ -21,7 +21,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
 # Prompt
-PROMPT='%n@%m:%~ %# '
+PROMPT='%n@%m:%F{cyan}%~%f %# '
 
 # Exports
 export GPG_TTY=$(tty)
