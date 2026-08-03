@@ -63,6 +63,10 @@ There are dotfiles for the listed apps below:
 - [miniconda](.condarc)
 - [ruff](ruff/ruff.toml)
 
+### C/C++
+
+- [clang-format](.clang-format)
+
 ## Closing Notes
 
 Interested in my setup more? Check [this repository](https://github.com/melikechan/my-setup)! ✨
