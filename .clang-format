@@ -1,33 +1,53 @@
 ---
 Language: Cpp
 BasedOnStyle: LLVM
+
+# General
 Standard: Latest
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
 ColumnLimit: 100
-PointerAlignment: Left
+
+# Braces
+BreakBeforeBraces: Linux
+
+# Keep control flow and functions visually expanded
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLoopsOnASingleLine: false
+AllowShortCaseLabelsOnASingleLine: false
+
+# Spacing
+SpaceBeforeParens: ControlStatements
 SpaceAfterTemplateKeyword: true
 
-# Expanded to full dictionary to bypass parser limitations
+# Pointers / references
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+DerivePointerAlignment: false
+
+# Alignment
+AlignAfterOpenBracket: Align
+
 AlignConsecutiveDeclarations:
     Enabled: false
     AcrossEmptyLines: false
     AcrossComments: false
     AlignFunctionPointers: false
 
-AlignAfterOpenBracket: Align
-BreakBeforeBraces: Linux
-AccessModifierOffset: -4
+AlignTrailingComments:
+    Kind: Never
 
-AllowShortBlocksOnASingleLine: false
-AllowShortFunctionsOnASingleLine: false
-AllowShortIfStatementsOnASingleLine: false
-AllowShortLoopsOnASingleLine: false
-AllowShortCaseLabelsOnASingleLine: false
-
-SpaceBeforeParens: ControlStatements
+# Includes
 SortIncludes: true
 IncludeBlocks: Regroup
+
+# Namespaces
+NamespaceIndentation: None
 FixNamespaceComments: true
+
+# Comments
+ReflowComments: true
 ...
