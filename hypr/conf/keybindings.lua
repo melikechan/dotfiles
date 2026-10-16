@@ -11,8 +11,8 @@ local menu        = "walker"
 local mainMod     = "SUPER" -- Modifier key (Windows)
 
 -- System (I hope they are not prone to be pressed accidental enough xd)
-hl.bind(mainMod .. " + CTRL + M", hl.dsp.exit(), { description = "Quit hyprland" })
-hl.bind(mainMod .. " + CTRL + R", hl.dsp.force_renderer_reload, { description = "Restart hyprland" })
+hl.bind(mainMod .. " + CTRL + M", hl.dsp.exec_cmd("hyprshutdown"), { description = "Log out" })
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.force_renderer_reload(), { description = "Reload renderer" })
 hl.bind(mainMod .. " + slash", hl.dsp.exec_cmd("~/.config/hypr/scripts/show_keybindings.sh"),
     { description = "Show keybindings" })
 
@@ -37,10 +37,25 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),
     { description = "Toggle maximize window" })
 hl.bind(mainMod .. " + T", function()
-    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-    hl.dispatch(hl.dsp.window.center())
+    local window = hl.get_active_window()
+    if window == nil then
+        return
+    end
+
+    if window.floating then
+        hl.dispatch(hl.dsp.window.float({ action = "unset", window = window }))
+    else
+        hl.dispatch(hl.dsp.window.float({ action = "set", window = window }))
+        hl.dispatch(hl.dsp.window.center({ window = window }))
+    end
 end, { description = "Toggle floating" })
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle(), { description = "Toggle window group" })
+
+-- Move floating windows with the mouse. Resizing by dragging a window border is
+-- enabled in look/general.lua. Avoid hl.dsp.window.resize() here: Hyprland
+-- 0.56.2 can crash when that Lua dispatcher is used as a mouse bind.
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),
+    { mouse = true, description = "Move window" })
 
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do

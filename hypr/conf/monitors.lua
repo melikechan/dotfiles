@@ -10,7 +10,8 @@ hl.monitor({
     scale    = 1.2
 })
 
--- unscale XWayland
+-- Let XWayland applications render at native scale; toolkit-specific scaling
+-- keeps them crisp on the fractionally scaled monitor.
 hl.config({
     xwayland = {
         force_zero_scaling = true

@@ -28,10 +28,15 @@ hl.window_rule({
         class = "steam_app.*",
         title = "^$",
     },
+    float = true,
     center = true
 })
 
-hl.window_rule({ match = { class = "steam_app.*", title = "negative:^$" }, content = "game" })
+hl.window_rule({
+    name = "mark-steam-games",
+    match = { class = "steam_app.*", title = "negative:^$" },
+    content = "game"
+})
 hl.window_rule({
     name = "game-windows",
     match = { content = "game" },

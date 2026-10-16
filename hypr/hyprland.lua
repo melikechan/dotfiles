@@ -32,3 +32,4 @@ require("conf.keybindings")
 
 -- Window rules
 require("conf.window_rules.system")
+require("conf.window_rules.games")

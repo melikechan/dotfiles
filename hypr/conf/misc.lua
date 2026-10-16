@@ -9,6 +9,6 @@ hl.config({
         disable_splash_rendering   = true,
         allow_session_lock_restore = true,
         middle_click_paste         = false,
-        on_focus_under_fullscreen  = 1
+        on_focus_under_fullscreen  = 0
     }
 })

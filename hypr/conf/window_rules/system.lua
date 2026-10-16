@@ -23,7 +23,7 @@ hl.window_rule({
     match = { class = "xdg-desktop-portal-gtk" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.5", "monitor_h * 0.6" }
+    size = { "monitor_w*0.5", "monitor_h*0.6" }
 })
 
 -- Zenity
@@ -40,7 +40,7 @@ hl.window_rule({
     match = { class = "hyprland-share-picker" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.4", "monitor_h * 0.5" }
+    size = { "monitor_w*0.4", "monitor_h*0.5" }
 })
 
 -- nmtui
@@ -49,7 +49,8 @@ hl.window_rule({
     match = { class = "nmtui" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.55", "monitor_h * 0.65" }
+    size = { "monitor_w*0.55", "monitor_h*0.65" },
+    suppress_event = "maximize"
 })
 
 -- bluetui
@@ -58,7 +59,8 @@ hl.window_rule({
     match = { class = "bluetui" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.5", "monitor_h * 0.6" }
+    size = { "monitor_w*0.5", "monitor_h*0.6" },
+    suppress_event = "maximize"
 })
 
 -- pwvucontrol
@@ -67,7 +69,7 @@ hl.window_rule({
     match = { class = "com.saivert.pwvucontrol" },
     float = true,
     center = true,
-    size = { "monitor_w * 0.5", "monitor_h * 0.6" }
+    size = { "monitor_w*0.5", "monitor_h*0.6" }
 })
 
 -- waybar

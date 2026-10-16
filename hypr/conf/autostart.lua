@@ -3,9 +3,6 @@
 -----------------
 
 hl.on("hyprland.start", function()
-    -- Environment for xdg-desktop-portal-hyprland
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-
     -- Polkit agent
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
@@ -15,11 +12,11 @@ hl.on("hyprland.start", function()
     -- Wallpaper
     hl.exec_cmd("hyprpaper")
 
-    -- Status Bar
-    hl.exec_cmd("waybar")
-
     -- Notification Daemon
     hl.exec_cmd("swaync")
+
+    -- Status Bar (wait briefly for SwayNC to claim its D-Bus name)
+    hl.exec_cmd("timeout 5s busctl --user wait org.erikreider.swaync.cc; waybar")
 
     -- hypridle
     hl.exec_cmd("hypridle")
